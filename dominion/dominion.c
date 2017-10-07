@@ -681,6 +681,20 @@ int adventurerCard(struct gameState *state, int currentPlayer, int handPos) {
   }
   return 0;
 }
+
+int seaHagCard(struct gameState *state, int currentPlayer) {
+  int i;
+  for (i = 0; i < state->numPlayers; i++){
+    if (i != currentPlayer){
+      state->discard[i][state->discardCount[i]] = state->deck[i][state->deckCount[i]--];			    
+      state->deckCount[i]--;
+      state->discardCount[i]++;
+      state->deck[i][state->deckCount[i]--] = curse;//Top card now a curse
+    }
+  }
+  return 0;
+}
+
 int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus)
 {
   int i;
@@ -1190,14 +1204,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
       return 0;
 		
     case sea_hag:
-      for (i = 0; i < state->numPlayers; i++){
-	if (i != currentPlayer){
-	  state->discard[i][state->discardCount[i]] = state->deck[i][state->deckCount[i]--];			    state->deckCount[i]--;
-	  state->discardCount[i]++;
-	  state->deck[i][state->deckCount[i]--] = curse;//Top card now a curse
-	}
-      }
-      return 0;
+      return seaHagCard(state, currentPlayer);
 		
     case treasure_map:
       //search hand for another treasure_map
