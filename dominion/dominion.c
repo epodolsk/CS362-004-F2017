@@ -695,6 +695,24 @@ int seaHagCard(struct gameState *state, int currentPlayer) {
   return 0;
 }
 
+int embargoCard(struct gameState *state, int currentPlayer, int handPos, int supplyPile) {
+  //+2 Coins
+  state->coins = state->coins + 2;
+  
+  //see if selected pile is in play
+  if ( state->supplyCount[supplyPile] == -1 )
+    {
+      return -1;
+    }
+  
+  //add embargo token to selected supply pile
+  state->embargoTokens[supplyPile]++;
+  
+  //trash card
+  discardCard(handPos, currentPlayer, state, 1);		
+  return 0;
+}
+
 int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus)
 {
   int i;
@@ -1163,21 +1181,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 
 		
     case embargo: 
-      //+2 Coins
-      state->coins = state->coins + 2;
-			
-      //see if selected pile is in play
-      if ( state->supplyCount[choice1] == -1 )
-	{
-	  return -1;
-	}
-			
-      //add embargo token to selected supply pile
-      state->embargoTokens[choice1]++;
-			
-      //trash card
-      discardCard(handPos, currentPlayer, state, 1);		
-      return 0;
+      return embargoCard(state, currentPlayer, handPos, choice1);
 		
     case outpost:
       //set outpost flag
