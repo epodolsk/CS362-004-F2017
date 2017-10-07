@@ -704,7 +704,7 @@ int embargoCard(struct gameState *state, int currentPlayer, int handPos, int sup
   state->embargoTokens[supplyPile]++;
   
   //trash card
-  discardCard(handPos, currentPlayer, state, 1);		
+  discardCard(handPos, currentPlayer, state, 0);		
   return 0;
 }
 
