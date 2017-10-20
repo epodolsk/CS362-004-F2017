@@ -5,14 +5,20 @@
 
 char inputChar()
 {
-    // TODO: rewrite this function
-    return ' ';
+    char testChar = (char) rand() % 128;
+    return testChar;
 }
 
 char *inputString()
 {
-    // TODO: rewrite this function
-    return "";
+    int string_size = 6;
+    char* testString = (char*) malloc(string_size*sizeof(char));
+    int i;
+    for(i = 0; i < string_size-1; ++i) {
+      testString[i] = (char) (rand() % 26) + 97; 
+     }
+    testString[string_size-1] = '\0';
+    return testString;
 }
 
 void testme()
