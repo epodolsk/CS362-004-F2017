@@ -118,7 +118,7 @@ File 'dominion.c'
 Lines executed:39.39% of 556
 Creating 'dominion.c.gcov'
 
-unittest4.c:
+cardtest4.c:
 TESTING cutpurse card:
 Player 0: Expected hand count 4 (got 4).
 TEST SUCCESSFUL
