@@ -33,7 +33,7 @@ unittestresults.out: dominion.o unittest1 unittest2 unittest3 unittest4 cardtest
 	./cardtest3 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
 	
-	echo "unittest4.c:" >> unittestresults.out
+	echo "cardtest4.c:" >> unittestresults.out
 	./cardtest4 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
 
