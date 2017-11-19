@@ -1,0 +1,30 @@
+Result for running dominion tests:
+cardtest1.c:
+TESTING adventurer card:
+With normal start deck:
+Player 0: Expected deck count 3 (got 4).TEST FAILED
+Player 0: Expected hand count 7 (got 6).TEST FAILED
+Player 1: Expected deck count 10 (got 10).TEST SUCCESSFUL
+Player 1: Expected hand count 0 (got 0).TEST SUCCESSFUL
+Player 2: Expected deck count 10 (got 10).TEST SUCCESSFUL
+Player 2: Expected hand count 0 (got 0).TEST SUCCESSFUL
+Player 3: Expected deck count 10 (got 10).TEST SUCCESSFUL
+Player 3: Expected hand count 0 (got 0).TEST SUCCESSFUL
+File 'dominion.c'
+Lines executed:22.00% of 559
+Creating 'dominion.c.gcov'
+
+cardtest2.c:
+TESTING smithy card:
+Player 0: Expected deck count 2 (got 0).TEST FAILED
+Player 0: Expected hand count 8 (got 9).TEST FAILED
+Player 1: Expected deck count 10 (got 10).TEST SUCCESSFUL
+Player 1: Expected hand count 0 (got 0).TEST SUCCESSFUL
+Player 2: Expected deck count 10 (got 10).TEST SUCCESSFUL
+Player 2: Expected hand count 0 (got 0).TEST SUCCESSFUL
+Player 3: Expected deck count 10 (got 10).TEST SUCCESSFUL
+Player 3: Expected hand count 0 (got 0).TEST SUCCESSFUL
+File 'dominion.c'
+Lines executed:26.83% of 559
+Creating 'dominion.c.gcov'
+

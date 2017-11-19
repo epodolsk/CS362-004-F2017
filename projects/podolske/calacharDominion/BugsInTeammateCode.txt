@@ -1,0 +1,9 @@
+2 Bugs Found
+
+Bug #1:
+dominion.c, smithyCard(), line 649
+Loop that perform card drawing runs 7 times instead of 3
+
+Bug #2:
+dominion.c, adventurerCard(), line 661
+Loop runs only until 1 treasure card is drawn instead of 2
