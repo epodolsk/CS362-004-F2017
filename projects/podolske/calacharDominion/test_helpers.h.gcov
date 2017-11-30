@@ -1,0 +1,17 @@
+        -:    0:Source:test_helpers.h
+        -:    0:Graph:cardtest1.gcno
+        -:    0:Data:cardtest1.gcda
+        -:    0:Runs:5
+        -:    0:Programs:1
+        -:    1:#include <stdio.h>
+        -:    2:
+       40:    3:int assertTrue(int condition) {
+       40:    4:    if(condition) {
+       30:    5:        printf("TEST SUCCESSFUL\n");
+        -:    6:    }
+        -:    7:    else {
+       10:    8:        printf("TEST FAILED\n");
+        -:    9:    }
+        -:   10:
+       40:   11:    return condition;
+        -:   12:}

@@ -40,20 +40,74 @@ public class UrlValidatorTest extends TestCase {
    
    public void testManualTest()
    {
+	   /*
 	   UrlValidator urlVal = new UrlValidator(null, null, UrlValidator.ALLOW_ALL_SCHEMES);
+	   System.out.println("Manual testing");
 	   System.out.println(urlVal.isValid("http://www.amazon.com"));
-	   
-	   
+	   System.out.println(urlVal.isValid("//www.amazon.com"));
+	   System.out.println(urlVal.isValid("htp://www.amazon.com"));
+	   System.out.println(urlVal.isValid("https://www.amazon.com"));
+	   System.out.println(urlVal.isValid("://www.amazon.com"));
+	   System.out.println(urlVal.isValid("www.amazon.com"));
+	   System.out.println(urlVal.isValid("ftp://www.amazon.com"));
+	   System.out.println(urlVal.isValid("http://www.amazon.comx"));
+	   System.out.println(urlVal.isValid("http://www.amazon.ac"));
+	   System.out.println(urlVal.isValid("http://www.amazon.zw"));
+	   System.out.println(urlVal.isValid("http://www.amazon.com."));
+	   System.out.println(urlVal.isValid("http://www.amazon.com.com"));
+	   System.out.println(urlVal.isValid("http://www.amazon.com.1"));
+	   System.out.println(urlVal.isValid("http://www.amazon.com/test"));
+	   System.out.println(urlVal.isValid("http://www.amazon.com/test?test1"));
+	   System.out.println(urlVal.isValid("http://1.1.1.1"));
+	   System.out.println(urlVal.isValid("http://255.255.255.255"));
+	   System.out.println(urlVal.isValid("http://256.256.256.256"));
+	   */
    }
    
-   
-   public void testYourFirstPartition()
+   //strings that are long
+   public void testPartition1()
    {
-	   
+	   /*
+	   UrlValidator urlVal = new UrlValidator(null, null, UrlValidator.ALLOW_ALL_SCHEMES);
+	   String longUrl = "http://www.";
+	   for(int i = 0; i < 100000; ++i) {
+		   longUrl += "a";
+	   }
+	   longUrl += ".com";
+	   System.out.println("Partition 1: Long URL");
+	   System.out.println("Long Url Test: " + urlVal.isValid(longUrl));
+	   */
+   }
+   //invalid schemes
+   public void testPartition2(){
+	   UrlValidator urlVal = new UrlValidator(null, null, UrlValidator.ALLOW_ALL_SCHEMES);
+	   String testStrings[] = {
+			   "htp://www.amazon.com",
+			   "://amazon.com",
+			   "/amazon.com",
+	   };
+	   System.out.println("Partition 2: Invalid Scheme (should all be false)");
+	   for(int i = 0; i < testStrings.length; ++i) {
+		   System.out.println(testStrings[i] + " " + urlVal.isValid(testStrings[i]));
+	   }
+
    }
    
-   public void testYourSecondPartition(){
-	   
+   //invalid authority
+   public void testPartition3(){
+	   UrlValidator urlVal = new UrlValidator(null, null, UrlValidator.ALLOW_ALL_SCHEMES);
+	   String testStrings[] = {
+			   "http://www.amazon.aa",
+			   "http://..com",
+			   "http://www.amazon..com",
+			   "http://1.1.1.1.1",
+			   "http://1.1.1",
+			   "http://256.256.256.256",
+	   };
+	   System.out.println("Partition 3: Invalid Scheme (should all be false)");
+	   for(int i = 0; i < testStrings.length; ++i) {
+		   System.out.println(testStrings[i] + " " + urlVal.isValid(testStrings[i]));
+	   }
    }
    
    
